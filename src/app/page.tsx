@@ -3,7 +3,7 @@
 import { Search } from "./_components/Search";
 import { Filter } from "./_components/Filter";
 import Card from "./_components/Card";
-import { use, useEffect } from "react";
+import { useEffect } from "react";
 import { getAll } from "../utils/requests";
 import { useAppContext } from "./context/state";
 
