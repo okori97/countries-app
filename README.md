@@ -32,7 +32,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [x] scaffold the ui
 - [x] connect to api
 - [x] make card handle data
-- [] setup filter
+- [x] setup filter
 - [] setup search
 - [] get dark mode working
 - [] create details page
