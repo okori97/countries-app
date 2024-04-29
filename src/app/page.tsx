@@ -13,7 +13,7 @@ export default function HomePage() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const data = await getAll(region);
+        const data = await getAll({ region });
         setCountries(data);
       } catch (error) {
         console.log(error);

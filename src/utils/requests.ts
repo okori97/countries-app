@@ -14,7 +14,7 @@ export interface Country {
   };
 }
 
-interface getAllFunc {
+export interface getAllFunc {
   region?: string;
   name?: string;
 }

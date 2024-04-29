@@ -7,6 +7,7 @@ export function ToggleDarkMode() {
       <div className="flex flex-row items-center gap-2">
         <Image
           className=" h-4"
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           src={darkModeIcon}
           alt="dark mode"
           height="20"
