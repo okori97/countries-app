@@ -8,12 +8,12 @@ import { getAll } from "../utils/requests";
 import { useAppContext } from "./context/state";
 
 export default function HomePage() {
-  const { countries, setCountries, region } = useAppContext();
+  const { countries, setCountries, region, search } = useAppContext();
   console.log;
   useEffect(() => {
     async function fetchData() {
       try {
-        const data = await getAll({ region });
+        const data = await getAll({ region, name: search });
         setCountries(data);
       } catch (error) {
         console.log(error);
@@ -23,7 +23,7 @@ export default function HomePage() {
     fetchData().catch((error) => {
       console.log(error);
     });
-  }, [region]);
+  }, [region, search, setCountries]);
 
   return (
     <main className="px-8 py-8">

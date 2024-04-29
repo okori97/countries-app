@@ -27,11 +27,9 @@ export async function getAll({
 
   if (name) {
     url += `/name/${name}`;
-  }
-  if (region) {
+  } else if (region) {
     url += `/region/${region}`;
-  }
-  if (!name && !region) {
+  } else {
     url += "/all";
   }
 

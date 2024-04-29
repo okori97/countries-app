@@ -1,6 +1,24 @@
+"use client";
+
+import { useAppContext } from "../context/state";
+
 export function Search() {
+  const { setSearch, search } = useAppContext();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const query: string = formData.get("search") as string;
+    console.log(query);
+    setSearch(query);
+    console.log(search);
+  };
   return (
-    <div className="flex w-96 flex-row items-center  gap-4 border px-5 py-1 text-sm shadow-md">
+    <form
+      name="search"
+      className="flex w-96 flex-row items-center  gap-4 border px-5 py-1 text-sm shadow-md"
+      onSubmit={handleSubmit}
+    >
       <button className=" ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -20,8 +38,9 @@ export function Search() {
       <input
         className=" focus: h-10 w-full outline-none"
         type="text"
+        name="search"
         placeholder="Search"
       />
-    </div>
+    </form>
   );
 }
