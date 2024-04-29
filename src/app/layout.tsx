@@ -1,4 +1,5 @@
 import "~/styles/globals.css";
+import { AppContextProvider } from "./context/state";
 
 import { Nunito_Sans } from "next/font/google";
 import { Navbar } from "./_components/Navbar";
@@ -27,8 +28,10 @@ export default function RootLayout({
         <style></style>
       </head>
       <body className={`font-nunito ${nunito.variable}`}>
-        <Navbar />
-        {children}
+        <AppContextProvider>
+          <Navbar />
+          {children}
+        </AppContextProvider>
       </body>
     </html>
   );
