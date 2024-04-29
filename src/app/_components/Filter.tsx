@@ -1,8 +1,21 @@
+"use client";
+import { useAppContext } from "../context/state";
+
 export function Filter() {
+  const { setRegion } = useAppContext();
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setRegion(e.target.value);
+    console.log(e.target.value);
+  };
   return (
     <div className="flex max-w-96 flex-row items-center border  p-4 text-sm shadow-md">
-      <select name="Region" className="pr-5" id="region">
-        <option value="default">Filter By Region</option>
+      <select
+        name="Region"
+        className="pr-5"
+        id="region"
+        onChange={handleChange}
+      >
+        <option value="">Filter By Region</option>
         <option value="Africa">Africa</option>
         <option value="Americas">Americas</option>
         <option value="Asia">Asia</option>

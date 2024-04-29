@@ -3,18 +3,17 @@
 import { Search } from "./_components/Search";
 import { Filter } from "./_components/Filter";
 import Card from "./_components/Card";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getAll } from "../utils/requests";
-import type { Country } from "../utils/requests";
+import { useAppContext } from "./context/state";
 
 export default function HomePage() {
-  const [countries, setCountries] = useState<Country[] | undefined>([]);
-
+  const { countries, setCountries, region } = useAppContext();
+  console.log;
   useEffect(() => {
     async function fetchData() {
       try {
-        const data = await getAll();
-        console.log(data);
+        const data = await getAll(region);
         setCountries(data);
       } catch (error) {
         console.log(error);
@@ -24,7 +23,7 @@ export default function HomePage() {
     fetchData().catch((error) => {
       console.log(error);
     });
-  }, []);
+  }, [region]);
 
   return (
     <main className="px-8 py-8">
@@ -33,7 +32,8 @@ export default function HomePage() {
         <Filter />
       </section>
       <section className="flex w-full flex-row flex-wrap items-center justify-between gap-y-12 ">
-        {countries.length > 0 &&
+        {countries &&
+          countries.length > 0 &&
           countries?.map((country, index) => {
             return <Card key={index} country={country} />;
           })}
