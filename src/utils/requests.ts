@@ -14,8 +14,26 @@ export interface Country {
   };
 }
 
-export async function getAll(): Promise<Country[] | undefined> {
-  const url = "https://restcountries.com/v3.1/all";
+interface getAllFunc {
+  region?: string;
+  name?: string;
+}
+
+export async function getAll({
+  region,
+  name,
+}: getAllFunc): Promise<Country[] | undefined> {
+  let url = "https://restcountries.com/v3.1";
+
+  if (name) {
+    url += `/name/${name}`;
+  }
+  if (region) {
+    url += `/region/${region}`;
+  }
+  if (!name && !region) {
+    url += "/all";
+  }
 
   try {
     const response = await axios.get<Country[]>(url);
