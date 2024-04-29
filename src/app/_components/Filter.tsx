@@ -8,10 +8,10 @@ export function Filter() {
     console.log(e.target.value);
   };
   return (
-    <div className="flex max-w-96 flex-row items-center border  p-4 text-sm shadow-md">
+    <div className="dark:bg-Primary-100 flex max-w-96 flex-row items-center border  p-4 text-sm shadow-md dark:border-none dark:text-white">
       <select
         name="Region"
-        className="pr-5"
+        className="dark:bg-Primary-100 pr-5"
         id="region"
         onChange={handleChange}
       >

@@ -3,12 +3,12 @@
 import { Search } from "./_components/Search";
 import { Filter } from "./_components/Filter";
 import Card from "./_components/Card";
-import { useEffect } from "react";
+import { use, useEffect } from "react";
 import { getAll } from "../utils/requests";
 import { useAppContext } from "./context/state";
 
 export default function HomePage() {
-  const { countries, setCountries, region, search } = useAppContext();
+  const { countries, setCountries, region, search, darkMode } = useAppContext();
   console.log;
   useEffect(() => {
     async function fetchData() {
@@ -25,8 +25,19 @@ export default function HomePage() {
     });
   }, [region, search, setCountries]);
 
+  useEffect(() => {
+    function checkDarkMode() {
+      if (darkMode == true) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    }
+    checkDarkMode();
+  }, [darkMode]);
+
   return (
-    <main className="px-8 py-8">
+    <main className="dark:bg-Primary-200 px-8 py-8">
       <section className="mb-8 flex w-full flex-row items-center justify-between">
         <Search />
         <Filter />

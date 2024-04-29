@@ -10,7 +10,7 @@ export default function Card(props: CardProps) {
 
   if (country) {
     return (
-      <div className="flex w-60 max-w-sm flex-col rounded-sm bg-white shadow-md">
+      <div className="dark:bg-Primary-100 flex w-60 max-w-sm flex-col rounded-sm bg-white shadow-md dark:text-white">
         <Image
           className="h-[140px] w-full object-cover"
           src={country.flags.svg}

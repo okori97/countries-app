@@ -16,7 +16,7 @@ export function Search() {
   return (
     <form
       name="search"
-      className="flex w-96 flex-row items-center  gap-4 border px-5 py-1 text-sm shadow-md"
+      className="dark:bg-Primary-100  flex w-96 flex-row items-center gap-4  border px-5 py-1 text-sm shadow-md dark:border-none"
       onSubmit={handleSubmit}
     >
       <button className=" ">
@@ -36,7 +36,7 @@ export function Search() {
         </svg>
       </button>
       <input
-        className=" focus: h-10 w-full outline-none"
+        className=" focus: dark:bg-Primary-100 h-10 w-full outline-none dark:text-white"
         type="text"
         name="search"
         placeholder="Search"
