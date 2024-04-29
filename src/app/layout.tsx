@@ -9,6 +9,7 @@ const nunito = Nunito_Sans({
   style: ["normal", "italic"],
   variable: "--font-nunito",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {

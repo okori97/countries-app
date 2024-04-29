@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useContext, useState } from "react";
-import type { Dispatch, SetStateAction } from "react";
+import type { Dispatch, ReactNode, SetStateAction } from "react";
 import type { Country } from "../../utils/requests";
 
 const initialState: State = {
@@ -19,7 +19,9 @@ export interface State {
 
 const AppContext = createContext<State>(initialState);
 
-export const AppContextProvider = ({ children }) => {
+export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [region, setRegion] = useState("");
   const [countries, setCountries] = useState<Country[] | undefined>(undefined);
 
