@@ -20,6 +20,7 @@ export default function CountryHeader({ country }: CountryHeaderProps) {
   const currencies = getCurrencies(country);
   const languages = getLanguages(country);
   const nativeName = getNativeName(country);
+  console.log(country.borders);
 
   return (
     <div className="flex w-full flex-row items-center gap-20">

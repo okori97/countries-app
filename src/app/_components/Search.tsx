@@ -39,7 +39,8 @@ export function Search() {
         </svg>
       </button>
       <input
-        className=" focus: dark:bg-Primary-100 h-10 w-full outline-none dark:text-white"
+        className="dark:bg-Primary-100 dark:autofill:text-white! h-10 w-full outline-none 
+ autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] focus:bg-inherit dark:text-white dark:autofill:shadow-[inset_0_0_0px_1000px_rgb(43,57,69)]"
         type="text"
         name="search"
         placeholder="Search"

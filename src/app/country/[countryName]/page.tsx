@@ -6,6 +6,7 @@ import type { Country } from "../../../types";
 import CountryHeader from "../../_components/CountryHeader";
 
 import { getAll } from "~/utils/requests";
+import BorderChip from "~/app/_components/BorderChip";
 
 export default function DetailsPage() {
   const [country, setCountry] = useState<Country | undefined>(undefined);
@@ -32,6 +33,9 @@ export default function DetailsPage() {
   }, [countryName]);
   return (
     <main className="h-full w-full">
+      <div className="mb-14">
+        <BorderChip border="← Back" link={"/"}></BorderChip>
+      </div>
       <CountryHeader country={country} />
     </main>
   );
