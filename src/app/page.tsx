@@ -9,7 +9,6 @@ import { useAppContext } from "./context/state";
 
 export default function HomePage() {
   const { countries, setCountries, region, search, darkMode } = useAppContext();
-  console.log;
   useEffect(() => {
     async function fetchData() {
       try {

@@ -6,23 +6,22 @@ import type { Country } from "../../../types";
 import CountryHeader from "../../_components/CountryHeader";
 
 import { getAll } from "~/utils/requests";
-import { set } from "zod";
 
 export default function DetailsPage() {
-  const [country, setCountry] = useState<Country | Country[] | undefined>(
-    undefined,
-  );
+  const [country, setCountry] = useState<Country | undefined>(undefined);
 
   const { countryName } = useParams();
-  console.log(useParams());
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const data = await getAll({ name: countryName, fullName: true });
-        setCountry({ data: data[0] });
-        console.log(data, "data");
-        console.log(country, " state");
+        const data = await getAll({
+          name: countryName as string,
+          fullName: true,
+        });
+        if (!data) throw new Error("No data");
+
+        setCountry(data[0]);
       } catch (error) {
         console.log(error);
       }
@@ -30,8 +29,7 @@ export default function DetailsPage() {
     fetchData().catch((error) => {
       console.log(error);
     });
-  }, []);
-
+  }, [countryName]);
   return (
     <main className="h-full w-full">
       <CountryHeader country={country} />

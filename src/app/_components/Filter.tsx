@@ -5,7 +5,6 @@ export function Filter() {
   const { setRegion } = useAppContext();
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setRegion(e.target.value);
-    console.log(e.target.value);
   };
   return (
     <div className="dark:bg-Primary-100 flex max-w-96 flex-row items-center border  p-4 text-sm shadow-md dark:border-none dark:text-white">

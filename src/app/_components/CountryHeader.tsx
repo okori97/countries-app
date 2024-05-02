@@ -10,36 +10,27 @@ import { getCurrencies, getLanguages, getNativeName } from "~/utils/helpers";
 countries.registerLocale(enLocale);
 
 interface CountryHeaderProps {
-  country: {
-    data: Country;
-  };
+  country?: Country;
 }
 
 export default function CountryHeader({ country }: CountryHeaderProps) {
   if (!country) return <div>Loading...</div>;
 
-  const countryData: Country = country.data;
-
-  const currencies = getCurrencies(countryData);
-  const languages = getLanguages(countryData);
-  const nativeName = getNativeName(countryData);
+  const currencies = getCurrencies(country);
+  const languages = getLanguages(country);
+  const nativeName = getNativeName(country);
 
   return (
     <div className="flex w-full flex-row items-center gap-20">
       <div>
-        {countryData?.flags ? (
-          <Image
-            src={countryData.flags.svg}
-            alt="flag"
-            width={500}
-            height={50}
-          />
+        {country?.flags ? (
+          <Image src={country.flags.svg} alt="flag" width={500} height={50} />
         ) : (
           "N/A"
         )}
       </div>
       <div className="flex flex-col">
-        <h1 className="mb-8 text-2xl font-bold">{countryData.name.common}</h1>
+        <h1 className="mb-8 text-2xl font-bold">{country.name.common}</h1>
 
         <div className=" grid grid-cols-2 ">
           <p className="mb-3 text-sm">
@@ -48,28 +39,27 @@ export default function CountryHeader({ country }: CountryHeaderProps) {
           </p>
           <p className="col-start-1 mb-3 text-sm">
             <span className="font-bold">Population: </span>
-            {commaNumber(countryData.population)}
+            {commaNumber(country.population)}
           </p>
           <p className="col-start-1 mb-3 text-sm">
             <span className="font-bold">Region: </span>
-            {countryData.region}
+            {country.region}
           </p>
           <p className=" col-start-1 mb-3 text-sm">
             <span className="font-bold">Subregion: </span>
-            {countryData.subregion}
+            {country.subregion}
           </p>
           <p className="col-start-1 mb-3 text-sm">
             <span className="font-bold">Capital: </span>
-            {countryData.capital}
+            {country.capital}
           </p>
           <p className="col-start-2 row-start-1 mb-3 text-sm">
             <span className="font-bold">Top Level Domain: </span>
-            {countryData.tld}
+            {country.tld}
           </p>
           <p className="col-start-2 row-start-2 mb-3 text-sm">
             <span className="font-bold">Currencies: </span>
             {currencies?.map((currency) => {
-              console.log("currencymap", currency);
               return currency;
             })}
           </p>
@@ -81,8 +71,8 @@ export default function CountryHeader({ country }: CountryHeaderProps) {
 
         <div className="wrap mt-12 flex  flex-row flex-wrap items-center gap-2">
           <span className="font-bold">Border Countries: </span>
-          {countryData.borders && countryData.borders.length > 0
-            ? countryData.borders.map((border: string, index) => (
+          {country.borders && country.borders.length > 0
+            ? country.borders.map((border: string, index) => (
                 <div
                   key={index}
                   className=" border px-5 py-1 text-sm shadow-sm"

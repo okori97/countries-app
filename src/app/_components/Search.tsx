@@ -8,15 +8,13 @@ export function Search() {
 
   useEffect(() => {
     setSearch("");
-  }, []);
+  }, [setSearch]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const query: string = formData.get("search") as string;
-    console.log(query);
     setSearch(query);
-    console.log(search);
   };
   return (
     <form
