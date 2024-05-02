@@ -14,7 +14,10 @@
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.10.1",
     "axios": "^1.6.8",
+    "comma-number": "^2.1.0",
+    "country-list": "^2.3.0",
     "drizzle-orm": "^0.29.4",
+    "i18n-iso-countries": "^7.11.1",
     "next": "^14.2.1",
     "postgres": "^3.4.3",
     "react": "18.2.0",
@@ -22,6 +25,8 @@
     "zod": "^3.23.3"
   },
   "devDependencies": {
+    "@types/comma-number": "^2.1.2",
+    "@types/country-list": "^2.1.4",
     "@types/eslint": "^8.56.2",
     "@types/node": "^20.11.20",
     "@types/react": "^18.2.57",
