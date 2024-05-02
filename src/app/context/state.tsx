@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import type { Dispatch, ReactNode, SetStateAction } from "react";
 import type { Country } from "../../types";
 
@@ -34,6 +34,17 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
   const [countries, setCountries] = useState<Country[] | undefined>(undefined);
   const [search, setSearch] = useState("");
   const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const isDark = localStorage.getItem("darkMode") === "false";
+    document.documentElement.classList.toggle("dark", isDark);
+    setDarkMode(isDark);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+    localStorage.setItem("darkMode", `${darkMode}`);
+  }, [darkMode]);
 
   return (
     <AppContext.Provider

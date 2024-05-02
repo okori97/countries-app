@@ -8,7 +8,7 @@ import { getAll } from "../utils/requests";
 import { useAppContext } from "./context/state";
 
 export default function HomePage() {
-  const { countries, setCountries, region, search, darkMode } = useAppContext();
+  const { countries, setCountries, region, search } = useAppContext();
   useEffect(() => {
     async function fetchData() {
       try {
@@ -23,17 +23,6 @@ export default function HomePage() {
       console.log(error);
     });
   }, [region, search, setCountries]);
-
-  useEffect(() => {
-    function checkDarkMode() {
-      if (darkMode == true) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    }
-    checkDarkMode();
-  }, [darkMode]);
 
   return (
     <main className="dark:bg-Primary-200 ">

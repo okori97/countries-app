@@ -1,4 +1,4 @@
-import { ToggleDarkMode } from "./ToggleDarkMode";
+import { Toggle } from "./Toggle";
 import Link from "next/link";
 
 export function Navbar() {
@@ -7,7 +7,7 @@ export function Navbar() {
       <Link href={"/"}>
         <h1 className=" text-2xl  font-bold">Where in the world?</h1>
       </Link>
-      <ToggleDarkMode />
+      <Toggle />
     </nav>
   );
 }

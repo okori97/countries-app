@@ -4,7 +4,7 @@ import { useAppContext } from "../context/state";
 import { useEffect } from "react";
 
 export function Search() {
-  const { setSearch, search } = useAppContext();
+  const { setSearch } = useAppContext();
 
   useEffect(() => {
     setSearch("");

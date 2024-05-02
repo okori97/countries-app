@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useAppContext } from "../context/state";
 import darkModeIcon from "../../../public/images/icon-dark-mode.svg";
 
-export function ToggleDarkMode() {
+export function Toggle() {
   const { darkMode, setDarkMode } = useAppContext();
 
   const handleClick = () => {

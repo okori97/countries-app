@@ -4,6 +4,7 @@ import Image from "next/image";
 import commaNumber from "comma-number";
 import countries from "i18n-iso-countries";
 import enLocale from "i18n-iso-countries/langs/en.json";
+import BorderChip from "./BorderChip";
 import type { Country } from "~/types";
 import { getCurrencies, getLanguages, getNativeName } from "~/utils/helpers";
 
@@ -14,7 +15,7 @@ interface CountryHeaderProps {
 }
 
 export default function CountryHeader({ country }: CountryHeaderProps) {
-  if (!country) return <div>Loading...</div>;
+  if (!country) return <div className="dark:text-white">Loading...</div>;
 
   const currencies = getCurrencies(country);
   const languages = getLanguages(country);
@@ -30,55 +31,55 @@ export default function CountryHeader({ country }: CountryHeaderProps) {
         )}
       </div>
       <div className="flex flex-col">
-        <h1 className="mb-8 text-2xl font-bold">{country.name.common}</h1>
+        <h1 className="mb-8 text-2xl font-bold dark:text-white">
+          {country.name.common}
+        </h1>
 
         <div className=" grid grid-cols-2 ">
-          <p className="mb-3 text-sm">
+          <p className="mb-3 text-sm dark:text-white">
             <span className="font-bold">Native Name: </span>
             {country && nativeName ? nativeName : "N/A"}
           </p>
-          <p className="col-start-1 mb-3 text-sm">
+          <p className="col-start-1 mb-3 text-sm dark:text-white">
             <span className="font-bold">Population: </span>
             {commaNumber(country.population)}
           </p>
-          <p className="col-start-1 mb-3 text-sm">
+          <p className="col-start-1 mb-3 text-sm dark:text-white">
             <span className="font-bold">Region: </span>
             {country.region}
           </p>
-          <p className=" col-start-1 mb-3 text-sm">
+          <p className=" col-start-1 mb-3 text-sm dark:text-white">
             <span className="font-bold">Subregion: </span>
             {country.subregion}
           </p>
-          <p className="col-start-1 mb-3 text-sm">
+          <p className="col-start-1 mb-3 text-sm dark:text-white">
             <span className="font-bold">Capital: </span>
             {country.capital}
           </p>
-          <p className="col-start-2 row-start-1 mb-3 text-sm">
+          <p className="col-start-2 row-start-1 mb-3 text-sm dark:text-white">
             <span className="font-bold">Top Level Domain: </span>
             {country.tld}
           </p>
-          <p className="col-start-2 row-start-2 mb-3 text-sm">
+          <p className="col-start-2 row-start-2 mb-3 text-sm dark:text-white">
             <span className="font-bold">Currencies: </span>
             {currencies?.map((currency) => {
               return currency;
             })}
           </p>
-          <p className="col-start-2 row-start-3 mb-3 text-sm">
+          <p className="col-start-2 row-start-3 mb-3 text-sm dark:text-white">
             <span className="font-bold">Languages: </span>
             {languages && languages.length > 0 ? languages?.join(", ") : "N/A"}
           </p>
         </div>
 
         <div className="wrap mt-12 flex  flex-row flex-wrap items-center gap-2">
-          <span className="font-bold">Border Countries: </span>
+          <span className="font-bold dark:text-white">Border Countries: </span>
           {country.borders && country.borders.length > 0
             ? country.borders.map((border: string, index) => (
-                <div
+                <BorderChip
+                  border={countries.getName(border, "en")}
                   key={index}
-                  className=" border px-5 py-1 text-sm shadow-sm"
-                >
-                  {countries.getName(border, "en")}
-                </div>
+                />
               ))
             : "N/A"}
         </div>

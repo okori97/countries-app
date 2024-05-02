@@ -31,7 +31,9 @@ export default function RootLayout({
       <body className={`font-nunito ${nunito.variable}`}>
         <AppContextProvider>
           <Navbar />
-          <main className="dark:bg-Primary-200 px-8 py-8">{children}</main>
+          <main className="dark:bg-Primary-200 h-lvh px-8 py-8">
+            {children}
+          </main>
         </AppContextProvider>
       </body>
     </html>
