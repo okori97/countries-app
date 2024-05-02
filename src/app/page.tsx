@@ -37,7 +37,7 @@ export default function HomePage() {
   }, [darkMode]);
 
   return (
-    <main className="dark:bg-Primary-200 px-8 py-8">
+    <main className="dark:bg-Primary-200 ">
       <section className="mb-8 flex w-full flex-row items-center justify-between">
         <Search />
         <Filter />

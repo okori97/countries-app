@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState } from "react";
 import type { Dispatch, ReactNode, SetStateAction } from "react";
-import type { Country } from "../../utils/requests";
+import type { Country } from "../../types";
 
 const initialState: State = {
   region: "",

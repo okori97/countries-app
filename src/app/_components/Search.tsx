@@ -1,9 +1,14 @@
 "use client";
 
 import { useAppContext } from "../context/state";
+import { useEffect } from "react";
 
 export function Search() {
   const { setSearch, search } = useAppContext();
+
+  useEffect(() => {
+    setSearch("");
+  }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -33,7 +33,9 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [x] connect to api
 - [x] make card handle data
 - [x] setup filter
-- [] setup search
-- [] get dark mode working
-- [] create details page
-- [] route to details page
+- [x] setup search
+- [x] get dark mode working
+- [x] create details page
+- [x] route to details page
+- [x] navigate to home page via logo
+- [] create back button

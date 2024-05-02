@@ -1,32 +1,24 @@
 import axios from "axios";
-
-export interface Country {
-  name: {
-    common: string;
-    official: string;
-  };
-  capital: string;
-  population: number;
-  region: string;
-  flags: {
-    png: string;
-    svg: string;
-  };
-}
+import type { Country } from "../types";
 
 export interface getAllFunc {
   region?: string;
-  name?: string;
+  name?: string | undefined;
+  fullName?: boolean;
 }
 
 export async function getAll({
   region,
   name,
+  fullName = false,
 }: getAllFunc): Promise<Country[] | undefined> {
   let url = "https://restcountries.com/v3.1";
 
   if (name) {
     url += `/name/${name}`;
+    if (fullName) {
+      url += "?fullText=true";
+    }
   } else if (region) {
     url += `/region/${region}`;
   } else {
@@ -35,6 +27,7 @@ export async function getAll({
 
   try {
     const response = await axios.get<Country[]>(url);
+    console.log(response);
     return response.data;
   } catch (error) {
     console.log(error);
