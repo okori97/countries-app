@@ -43,7 +43,7 @@ export function Filter() {
         <span id="selecteditem">Filter By Region</span>
         <span>
           <FontAwesomeIcon
-            icon={open ? faCaretDown : faCaretUp}
+            icon={open == false ? faCaretDown : faCaretUp}
             className="w-3"
           />
         </span>
