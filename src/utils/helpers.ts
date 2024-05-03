@@ -1,3 +1,4 @@
+"use client";
 import type { Country } from "~/types";
 
 export const getNativeName = (data: Country) => {

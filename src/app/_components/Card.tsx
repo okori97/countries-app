@@ -12,31 +12,37 @@ export default function Card(props: CardProps) {
 
   if (country) {
     return (
-      <div className="dark:bg-Primary-100 m flex w-60  flex-col overflow-hidden rounded-[5px] bg-white shadow-md dark:text-white">
+      <div className="dark:bg-Primary-100  sm:w-70 flex w-full flex-col overflow-hidden rounded-[5px] bg-white shadow-md dark:text-white">
         <Link
           href={`/country/${country.name.common}`}
           className="h-full w-full"
         >
           <Image
-            className="h-[140px] w-full object-cover"
+            className="h-[160px] w-full object-cover"
             src={country.flags.svg}
             alt="flag"
             width={200}
             height={50}
           />
-          <section className="px-4 py-8">
-            <p className="mb-4 font-bold">{country.name.common}</p>
-            <p className="text-sm">
-              <span className="font-bold">Population: </span>
-              {commaNumber(country.population)}
+          <section className="px-8 py-10 text-sm">
+            <p className="mb-4 text-base font-bold">{country.name.common}</p>
+            <p className="">
+              <span className="mb-4 ">Population: </span>
+              <span className="text-gray-700 dark:text-gray-300">
+                {commaNumber(country.population)}
+              </span>
             </p>
-            <p className="text-sm">
-              <span className="font-bold">Region: </span>
-              {country.region}
+            <p className="">
+              <span className="mb-4 ">Region: </span>
+              <span className="text-gray-700 dark:text-gray-300">
+                {country.region}
+              </span>
             </p>
-            <p className="text-sm">
-              <span className="font-bold">Capital: </span>
-              {country.capital}
+            <p className="">
+              <span className="mb-4 ">Capital: </span>
+              <span className="text-gray-700 dark:text-gray-300">
+                {country.capital}
+              </span>
             </p>
           </section>
         </Link>
