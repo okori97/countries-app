@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./countries-app/public/images/desktop.png)
+![](./public/images/desktop.png)
 
 ### Links
 
