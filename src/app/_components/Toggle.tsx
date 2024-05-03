@@ -14,7 +14,7 @@ export function Toggle() {
   return (
     <button className="cursor-pointer">
       <div
-        className="flex flex-row items-center gap-2 dark:text-white"
+        className=" sm:text-md flex flex-row items-center gap-2  dark:text-white"
         onClick={handleClick}
       >
         <Image

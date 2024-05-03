@@ -10,6 +10,8 @@ export default function BorderChip({
   link?: string;
 }) {
   if (!border) return;
+  border = border.split(",")[0];
+
   return (
     <Link href={link ? link : `/country/${border}`}>
       <div

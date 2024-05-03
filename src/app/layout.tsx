@@ -1,6 +1,10 @@
 import "~/styles/globals.css";
 import { AppContextProvider } from "./context/state";
 
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+
 import { Nunito_Sans } from "next/font/google";
 import { Navbar } from "./_components/Navbar";
 
@@ -31,7 +35,7 @@ export default function RootLayout({
       <body className={`font-nunito ${nunito.variable}`}>
         <AppContextProvider>
           <Navbar />
-          <main className="dark:bg-Primary-200 h-lvh px-8 py-8">
+          <main className="dark:bg-Primary-200 bg-secondary-100 h-full min-h-lvh px-4 py-6 sm:p-8">
             {children}
           </main>
         </AppContextProvider>

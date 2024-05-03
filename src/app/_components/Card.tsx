@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Country } from "../../types";
+import commaNumber from "comma-number";
 
 interface CardProps {
   country: Country;
@@ -11,7 +12,7 @@ export default function Card(props: CardProps) {
 
   if (country) {
     return (
-      <div className="dark:bg-Primary-100 flex w-60 max-w-sm flex-col rounded-sm bg-white shadow-md dark:text-white">
+      <div className="dark:bg-Primary-100 m flex w-60  flex-col overflow-hidden rounded-[5px] bg-white shadow-md dark:text-white">
         <Link
           href={`/country/${country.name.common}`}
           className="h-full w-full"
@@ -27,7 +28,7 @@ export default function Card(props: CardProps) {
             <p className="mb-4 font-bold">{country.name.common}</p>
             <p className="text-sm">
               <span className="font-bold">Population: </span>
-              {country.population}
+              {commaNumber(country.population)}
             </p>
             <p className="text-sm">
               <span className="font-bold">Region: </span>

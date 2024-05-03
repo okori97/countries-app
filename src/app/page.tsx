@@ -26,11 +26,11 @@ export default function HomePage() {
 
   return (
     <main className="dark:bg-Primary-200 ">
-      <section className="mb-8 flex w-full flex-row items-center justify-between">
+      <section className="mb-8 flex w-full flex-col items-start justify-between gap-y-10 sm:flex-row sm:items-center">
         <Search />
         <Filter />
       </section>
-      <section className="flex w-full flex-row flex-wrap items-center justify-between gap-y-12 ">
+      <section className="flex w-full flex-row flex-wrap items-center justify-center gap-y-12 sm:justify-between ">
         {countries &&
           countries.length > 0 &&
           countries?.map((country, index) => {

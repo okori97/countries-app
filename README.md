@@ -39,4 +39,5 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [x] route to details page
 - [x] navigate to home page via logo
 - [x] create borderchip link
-- [] create back button
+- [x] create back button
+- [x] mobile responsive
