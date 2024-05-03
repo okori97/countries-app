@@ -27,6 +27,7 @@ export async function getAll({
 
   try {
     const response = await axios.get<Country[]>(url);
+
     return response.data;
   } catch (error) {
     console.log(error);

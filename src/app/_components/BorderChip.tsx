@@ -11,6 +11,7 @@ export default function BorderChip({
 }) {
   if (!border) return;
   border = border.split(",")[0];
+  border?.match("Cote d'Ivoire") !== null ? (border = "Ivory Coast") : border;
 
   return (
     <Link href={link ? link : `/country/${border}`}>

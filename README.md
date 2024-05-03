@@ -1,43 +1,84 @@
-# Create T3 App
+## Frontend Mentor - REST Countries API with color theme switcher solution
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
 
-## What's next? How do I make an app with this?
+## Table of contents
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Overview
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+### The challenge
 
-## Learn More
+Users should be able to:
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+- See all countries from the API on the homepage
+- Search for a country using an `input` field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Click through to the border countries on the detail page
+- Toggle the color scheme between light and dark mode _(optional)_
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+### Screenshot
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+![](./countries-app/public/images/desktop.png)
 
-## How do I deploy this?
+### Links
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- Solution URL: [Github](https://github.com/okori97/countries-app/tree/main)
+- Live Site URL: [Vercel](https://countries-app-seven-fawn.vercel.app/)
 
-- [x] deploy to vercel
-- [x] scaffold the ui
-- [x] connect to api
-- [x] make card handle data
-- [x] setup filter
-- [x] setup search
-- [x] get dark mode working
-- [x] create details page
-- [x] route to details page
-- [x] navigate to home page via logo
-- [x] create borderchip link
-- [x] create back button
-- [x] mobile responsive
+## My process
+
+### Built with
+
+- Typescript
+- Tailwind
+- NextJS
+- comma-number
+- Fontawesome
+- country-list
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+
+### What I learned
+
+Nextjs. Dynamic routing and app router. I mostly use express and node for my server side stuff so this was the first time i used nextjs and app router. I love being able to opt into the client. It was a bit confusing at first but i was able to get it to work.
+
+The t3 scaffolding, whilst a bit excessive for this project, was great for getting started with nextjs.
+
+```<AppContext.Provider
+      value={{
+        region,
+        setRegion,
+        countries,
+        setCountries,
+        search,
+        setSearch,
+        darkMode,
+        setDarkMode,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+
+ Declaring global state context in one file then importing it as and when felt clean, i like this approach.
+```
+
+### Continued development
+
+Build more serverside stuff. I think it was wise to pick a simpler project to get started with nextjs and app router, but i know i'd have more fun with a more complex project.
+
+## Author
+
+- Website - [Okori Lewis-McCalla](https://www.okori.com)
+- Frontend Mentor - [@okori97](https://www.frontendmentor.io/profile/okori97)
+- Twitter - [@onlyokori](https://www.twitter.com/onlyokori)
